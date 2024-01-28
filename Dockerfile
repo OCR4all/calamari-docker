@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.3.1-runtime-ubuntu22.04
+FROM nvidia/cuda:11.2.2-runtime-ubuntu20.04
 
 ARG CALAMARI_URL=https://github.com/Calamari-OCR/calamari/archive/master.zip
 
@@ -15,3 +15,4 @@ RUN python3.7 -m pip --no-cache-dir install --upgrade pip
 RUN python3.7 -m pip --no-cache-dir install ${CALAMARI_URL}
 RUN apt-get purge -y --auto-remove build-essential
 RUN rm -rf /var/lib/apt/lists/*
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.2/targets/x86_64-linux/lib
