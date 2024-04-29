@@ -14,5 +14,9 @@ docker build . -t calamari:gpu
 ```
 Run a command
 ``` 
-docker run --platform linux/amd64 --gpus all --rm calamari:gpu calamari-predict ...
+docker run --gpus all --rm calamari:gpu calamari-predict ...
+```
+or if you're not on a amd64 platform
+```
+docker run --platform linux/amd64 --rm calamari:gpu calamari-predict ...
 ```
